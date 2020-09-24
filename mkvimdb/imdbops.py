@@ -7,10 +7,22 @@ from imdb import IMDb
 
 
 def ERR(outstring):
+    """
+    Stupid stderr printer.  Don't mock me.
+    """
         sys.stderr.write(str(outstring) + '\n')
 
 
 def genout(filmentry):
+    """
+    Take a record from IMDB and manipulate the heck out of it to create
+        conforming XML and regimented canonical filenames.
+    Filenames for film will be
+        <director(s)>-<canonical_title,the>-<year>.xml
+    Filenames for episodes will be
+        <series,the>-<season><episode>-<canonical_title,the>.xml
+    Returns a dictionary to update dict-like things.
+    """
     outdict={}
     kind = filmentry.get('kind')
     try:
@@ -70,13 +82,21 @@ def genout(filmentry):
     else:
         outdict['filename'] = "%s-%s-%s" % (directorscanon, titlecanon, year)
     outdict['filename'] = ''.join(nchar for nchar in outdict['filename'] if nchar in string.printable)
-    badchars='''\/:*?"<>'|~'''
+    badchars="""\/:*?"<>'|~"""
     for nchar in badchars:
         outdict['filename'] = outdict['filename'].replace(nchar,'_')
 
     return(outdict)
 
 def pickone(matches, title, year, interactive, verbose):
+    """
+    Takes the fuzzy matches from IMDB and returns the most likely correct one.
+    Optionally, it can be interactive.
+    In interactive mode, it will present the perfect matches first, then the
+        OK matches, then all the others, excluding things that are not movies,
+        episodes, or miniseries.
+    Returns a best-fit IMDB record object or a user-chosen IMDB record object.
+    """
     acceptablekinds = ['movie', 'episode', 'video movie', 'tv miniseries']
     if not matches:
         return(None)
@@ -127,7 +147,9 @@ def pickone(matches, title, year, interactive, verbose):
 
 
 def matchingnames(cursor, searchstring):
-    '''Search IMDB for a particular movie.'''
+    """
+    Search IMDB for a particular movie.
+    """
     return(cursor.search_movie(str(searchstring)))
 
 

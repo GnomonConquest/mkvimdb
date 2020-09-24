@@ -9,10 +9,16 @@ import mkvimdb.imdbops as imdbops
 
 
 def ERR(outstring):
-        sys.stderr.write(str(outstring) + '\n')
+    """
+    Stupid stderr printer.  Don't mock me.
+    """
+    sys.stderr.write(str(outstring) + '\n')
 
 
 class moviecursor:
+    """
+    ETL heavy lifter class that coordinates among the transformations.
+    """
     def __init__(
             self, title='Pulp Fiction',
             year='1994',
@@ -22,6 +28,10 @@ class moviecursor:
             replacetitle='',
             interactive=False,
             verbose=False):
+        """
+        constructor for moviecursor()
+        ETL heavy lifter class that coordinates among the transformations.
+        """
         self.title = title
         self.year = year
         self.output_dir = output_dir
@@ -49,10 +59,19 @@ class moviecursor:
         self.overrides()
         self.spit()
     def makecursor(self):
+        """
+        Just returns a connection object to IMDB from the blessed imdb module.
+        """
         self.c = IMDb()
     def matchingnames(self):
+        """
+        Calls the search with its own parameters.
+        """
         self.matches = imdbops.matchingnames(self.c, self.searchstring)
     def pickone(self):
+        """
+        Uses the search resutls from self.matchingnames() to pick a winner.
+        """
         self.entry = imdbops.pickone(
             self.matches,
             self.title,
@@ -61,8 +80,14 @@ class moviecursor:
             self.verbose)
         self.entry = self.c.get_movie(self.entry.getID())
     def genout(self):
+        """
+        Navigates the IMDB object definition to get meat for our tags.
+        """
         self.tagdata.update(imdbops.genout(self.entry))
     def overrides(self):
+        """
+        Implement commandline overrides as specified in the help text.
+        """
         if self.replacegenre:
             self.tagdata['GENRE'] = self.replacegenre
         if self.extragenre:
@@ -70,6 +95,9 @@ class moviecursor:
         if self.replacetitle:
             self.tagdata['TITLE'] = self.replacetitle
     def spit(self):
+        """
+        Generate output to disk, if specified or to STDOUT if not.
+        """
         if self.output_dir:
             with open(self.tagdata['filename'] + '.xml', 'w') as FH:
                 FH.write(tagify.givexml(self.tagdata))

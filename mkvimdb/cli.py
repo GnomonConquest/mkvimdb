@@ -6,7 +6,9 @@ import mkvimdb.mkvimdb as mi
 
 
 def main(argv=None):
-    """Console script for mkvimdb."""
+    """
+    Console script for mkvimdb.
+    """
     program_name = os.path.basename(sys.argv[0])
     program_version = "all"
     program_build_date = "%s" % 2020
