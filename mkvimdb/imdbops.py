@@ -10,7 +10,7 @@ def ERR(outstring):
     """
     Stupid stderr printer.  Don't mock me.
     """
-        sys.stderr.write(str(outstring) + '\n')
+    sys.stderr.write(str(outstring) + '\n')
 
 
 def genout(filmentry):
