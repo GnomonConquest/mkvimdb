@@ -14,8 +14,8 @@ mkvimdb
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/gnomonconquest/mkvimdb/shield.svg
-     :target: https://pyup.io/repos/github/gnomonconquest/mkvimdb/
+.. image:: https://pyup.io/repos/github/GnomonConquest/mkvimdb/shield.svg
+     :target: https://pyup.io/repos/github/GnomonConquest/mkvimdb/
      :alt: Updates
 
 
