@@ -40,6 +40,10 @@ Features
 
 * Use resulting XML to retag an MKV, for example...
 
+    * Build your XML
+`mkvimdb -s "Pulp Fiction" -y 1994 -o .`
+
+    * Tag your file
 `mkvpropedit tarantino,quentin-pulp_fiction-1994.mkv -t global:tarantino,quentin-pulp_fiction-1994.xml`
 
 Credits
