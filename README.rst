@@ -6,9 +6,6 @@ mkvimdb
 .. image:: https://img.shields.io/pypi/v/mkvimdb.svg
         :target: https://pypi.python.org/pypi/mkvimdb
 
-.. image:: https://img.shields.io/travis/gnomonconquest/mkvimdb.svg
-        :target: https://travis-ci.com/gnomonconquest/mkvimdb
-
 .. image:: https://readthedocs.org/projects/mkvimdb/badge/?version=latest
         :target: https://mkvimdb.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status

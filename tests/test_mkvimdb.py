@@ -7,7 +7,6 @@ import unittest
 
 from mkvimdb import mkvimdb
 
-
 class TestMkvimdb(unittest.TestCase):
     """Tests for `mkvimdb` package."""
 
