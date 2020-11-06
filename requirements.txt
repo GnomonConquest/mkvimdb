@@ -6,6 +6,6 @@ flake8
 tox
 coverage
 Sphinx
-twine
+#twine
 imdbpy
 
