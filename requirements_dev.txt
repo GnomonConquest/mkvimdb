@@ -7,5 +7,5 @@ tox==4.0.17
 coverage==7.0.1
 Sphinx==5.3.0
 twine
-imdbpy
+imdbpy==2022.7.9
 
