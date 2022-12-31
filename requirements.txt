@@ -5,6 +5,6 @@ watchdog==2.2.0
 flake8==6.0.0
 tox==4.1.2
 coverage==7.0.1
-Sphinx
+Sphinx==6.0.0
 imdbpy
 
