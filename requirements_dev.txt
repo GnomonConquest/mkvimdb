@@ -6,6 +6,6 @@ flake8==6.1.0
 tox==4.11.4
 coverage==7.3.3
 Sphinx==7.2.6
-twine
+twine==4.0.2
 imdbpy==2022.7.9
 
